@@ -13,7 +13,6 @@ verifyToken = async(req, res, next) => {
             message: "No token provided",
             error: ""
         });
-
     }
     const isTokenAvailable = await Token.findOne({
         where: { token: token }

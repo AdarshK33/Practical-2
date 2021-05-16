@@ -13,8 +13,6 @@ app.use(express.json())
 const port = 3002;
 
 
-
-
 app.get('/seeder_run', async function(req, res) {
     try {
         let countryArr = [];
@@ -74,25 +72,26 @@ app.post('/user', body('email').isEmail(), body('password').isLength({ min: 6 })
             profile_img: req.body.profile_img,
             state_id: req.body.state_id
         }).save().catch(e => {
-            console.log("exectptioj", e.message);
+            return res.send({
+                status: "bad request",
+                status_code: 400,
+                message: e.message,
+                error: ""
+            })
         });
-        // return res.send("succuess");
-        // const activityUserObj = await Users_histories.build({ activity: 'user created' });
-        // await activityUserObj.save();
-
-        res.send({
+        return res.send({
             status: "success",
             status_code: 200,
             message: "user Created Successfully",
             data: userObj
         });
     } catch (error) {
-        res.send({
+        return res.send({
             status: "bad request",
             status_code: 400,
             message: error.message,
             error: ""
-        })
+        });
     }
 });
 
@@ -118,9 +117,6 @@ app.put('/update_profile', isAuth, async function(req, res) {
             message: "updated  display:",
             data: userObj
         });
-
-
-
     } catch (error) {
         res.send({
             status: "bad request",
@@ -141,15 +137,12 @@ app.delete('/delete_profile', isAuth, async function(req, res) {
         await userObj.destroy();
         const activityUserObj = await Users_histories.build({ activity: 'Delete profile', user_id: req.user.id });
         await activityUserObj.save();
-        res.send({
+        return res.send({
             status: "success",
             status_code: 200,
             message: "deleted:",
             data: userObj
-
         });
-
-
     } catch (error) {
         res.send({
             status: "bad request",
@@ -158,8 +151,6 @@ app.delete('/delete_profile', isAuth, async function(req, res) {
             error: ""
         })
     }
-
-
 });
 
 app.get('/profile', isAuth, async function(req, res) {
@@ -353,9 +344,6 @@ app.post('/logout', isAuth, async function(req, res) {
         })
     }
 });
-
-
-
 
 
 app.listen(port, () => {
