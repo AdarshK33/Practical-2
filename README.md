@@ -1,2 +1,3 @@
 # Practical-2
-node express mysql
+node express sequelize mysql
+ 
