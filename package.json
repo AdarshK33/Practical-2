@@ -1,0 +1,27 @@
+{
+    "name": "sequelizer",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "dependencies": {
+        "bcrypt": "^5.0.1",
+        "cookie-parser": "^1.4.5",
+        "dotenv": "^9.0.2",
+        "express": "^4.17.1",
+        "express-validator": "^6.11.1",
+        "faker": "^5.5.3",
+        "jsonwebtoken": "^8.5.1",
+        "mysql2": "^2.2.5",
+        "sequelize": "^6.6.2",
+        "sequelize-cli": "^6.2.0"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.7"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "nodemon": "nodemon"
+    },
+    "author": "",
+    "license": "ISC"
+}
