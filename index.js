@@ -153,7 +153,7 @@ app.delete('/delete_profile', isAuth, async function(req, res) {
     }
 });
 
-app.get('/profile', isAuth, async function(req, res) {
+app.get('/get_profile', isAuth, async function(req, res) {
     try {
         const UserObj = await Users.findOne({
             // where: { id: req.user.id },
@@ -197,7 +197,7 @@ app.get('/profile', isAuth, async function(req, res) {
 
 
 });
-app.get('/country_list', async function(req, res) {
+app.get('/get_country_list', async function(req, res) {
     try {
         const countryObj = await Countries.findAll({ attributes: ['name'] });
         // res.json(countryObj);
@@ -220,7 +220,7 @@ app.get('/country_list', async function(req, res) {
     }
 });
 
-app.get('/state_list', async function(req, res) {
+app.get('/get_state_list', async function(req, res) {
     try {
         const StatesObj = await States.findAll({
             include: {
