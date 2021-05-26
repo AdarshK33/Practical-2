@@ -6,7 +6,7 @@ Please Install the Node to run this application, to download please visit the gi
 
 Please go to folder(./) and run the below command in termial:- npm install
 
-Please go to file (./env) and set the Database connection.
+Please go to file (./env) and (config.json) set the Database connection.
 
 To create Table in Database ,please run the command in termial:- npx sequelize-cli db:migrate
 
@@ -18,4 +18,4 @@ Please open the URL in browser:- http://localhost:3002/
 
 please check the API in your system through postman.
 
-**header key . **token value.
+Please enter Headers (*****)key and token (*****) value in postman.
